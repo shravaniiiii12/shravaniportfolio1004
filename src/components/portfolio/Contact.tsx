@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Mail, Phone, MapPin, Github, Send, Globe, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Send, Globe } from 'lucide-react';
 
 const Contact = () => {
   const contactInfo = [
@@ -36,27 +36,6 @@ const Contact = () => {
     }
   ];
 
-  const socialLinks = [
-    {
-      icon: Github,
-      name: "GitHub",
-      url: "https://github.com/shravaniiiii12",
-      color: "hover:bg-purple-500/20 hover:text-purple-400"
-    },
-    {
-      icon: Mail,
-      name: "Email",
-      url: "mailto:shravanikarambelkar7088@gmail.com",
-      color: "hover:bg-red-500/20 hover:text-red-400"
-    },
-    {
-      icon: Phone,
-      name: "Phone",
-      url: "tel:+917758050169",
-      color: "hover:bg-green-500/20 hover:text-green-400"
-    }
-  ];
-
   const interests = [
     "🌍 Exploring new cultures through travel and trekking",
     "📚 Reading to expand perspective and knowledge",
@@ -79,11 +58,11 @@ const Contact = () => {
       
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-white mb-6 animate-fade-in">
+          <h2 className="text-5xl font-bold text-black mb-6 animate-fade-in">
             Let's <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Connect</span>
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xl text-black max-w-2xl mx-auto">
             Ready to collaborate on innovative projects or discuss opportunities in AI, Cloud, and emerging technologies.
           </p>
         </div>
@@ -91,7 +70,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {/* Contact Information */}
           <div className="lg:col-span-2">
-            <h3 className="text-3xl font-semibold text-white mb-8 animate-fade-in">Get In Touch</h3>
+            <h3 className="text-3xl font-semibold text-black mb-8 animate-fade-in">Get In Touch</h3>
             
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               {contactInfo.map((contact, index) => {
@@ -108,9 +87,9 @@ const Contact = () => {
                         <div className={`p-4 bg-gradient-to-br ${contact.color} rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                           <IconComponent className="h-6 w-6 text-white" />
                         </div>
-                        <div>
+                        <div className="min-w-0 flex-1">
                           <p className="text-sm text-slate-400 mb-1">{contact.label}</p>
-                          <p className="font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                          <p className="font-semibold text-black group-hover:text-blue-400 transition-colors duration-300 truncate">
                             {contact.value}
                           </p>
                         </div>
@@ -125,29 +104,11 @@ const Contact = () => {
             <div className="text-center">
               <Button 
                 className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-300"
-                onClick={() => window.open("mailto:shravanikarambelkar7088@gmail.com")}
+                onClick={() => window.open("https://wa.me/qr/ADNTYM75YXKQJ1")}
               >
                 <Send className="mr-2 h-5 w-5" />
                 Start a Conversation
               </Button>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex justify-center space-x-6 mt-8">
-              {socialLinks.map((social, index) => {
-                const IconComponent = social.icon;
-                return (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 ${social.color} transition-all duration-300 transform hover:scale-110`}
-                  >
-                    <IconComponent className="h-6 w-6" />
-                  </a>
-                );
-              })}
             </div>
           </div>
 
@@ -156,7 +117,7 @@ const Contact = () => {
             {/* Languages */}
             <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg border border-white/10 hover:border-blue-400/50 transition-all duration-500 animate-fade-in delay-300">
               <CardContent className="p-6">
-                <h4 className="text-2xl font-semibold mb-6 text-white flex items-center">
+                <h4 className="text-2xl font-semibold mb-6 text-black flex items-center">
                   <Globe className="h-6 w-6 mr-2 text-blue-400" />
                   Languages
                 </h4>
@@ -164,7 +125,7 @@ const Contact = () => {
                   {languages.map((lang, index) => (
                     <div key={index}>
                       <div className="flex justify-between mb-2">
-                        <span className="text-slate-300 font-medium">{lang.name}</span>
+                        <span className="text-black font-medium">{lang.name}</span>
                         <div className="flex space-x-1">
                           {[...Array(5)].map((_, i) => (
                             <div
@@ -185,10 +146,10 @@ const Contact = () => {
             {/* Interests */}
             <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg border border-white/10 hover:border-blue-400/50 transition-all duration-500 animate-fade-in delay-400">
               <CardContent className="p-6">
-                <h4 className="text-2xl font-semibold mb-6 text-white">Interests & Hobbies</h4>
+                <h4 className="text-2xl font-semibold mb-6 text-black">Interests</h4>
                 <ul className="space-y-3">
                   {interests.map((interest, index) => (
-                    <li key={index} className="flex items-start text-slate-300 hover:text-white transition-colors duration-300">
+                    <li key={index} className="flex items-start text-black hover:text-blue-600 transition-colors duration-300">
                       <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       {interest}
                     </li>
@@ -201,7 +162,7 @@ const Contact = () => {
 
         {/* Footer */}
         <div className="text-center pt-8 border-t border-white/10">
-          <p className="text-slate-400 text-lg">
+          <p className="text-black text-lg">
             © 2025 Shravani Karambelkar • Crafted with 💙 for technology and innovation
           </p>
           <p className="text-slate-500 mt-2">

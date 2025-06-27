@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, Trophy, Users, Briefcase, Award, Target } from 'lucide-react';
+import { Calendar, Trophy, Users, Briefcase, Award, Target, Star } from 'lucide-react';
 
 const Activities = () => {
   const activities = [
@@ -34,6 +34,12 @@ const Activities = () => {
       description: "Explored the latest innovations in electric vehicle technology at the EV Expo in Auto Cluster.",
       icon: Target,
       category: "Learning"
+    },
+    {
+      title: "Aavishkar Zonal Level Project Competition Nov-24",
+      description: "Showcased agritech innovations at the competition held at Tikaram Jaganath Arts, Commerce, and Science College.",
+      icon: Star,
+      category: "Competition"
     }
   ];
 
@@ -52,7 +58,7 @@ const Activities = () => {
     <section className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-4 animate-fade-in">
+          <h2 className="text-4xl font-bold text-black mb-4 animate-fade-in">
             Extracurricular <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Activities</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full"></div>
@@ -72,17 +78,17 @@ const Activities = () => {
                     <div className={`p-3 bg-gradient-to-br ${getCategoryColor(activity.category)} rounded-lg`}>
                       <IconComponent className="h-6 w-6 text-white" />
                     </div>
-                    <span className="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-slate-100 text-black text-xs font-semibold rounded-full">
                       {activity.category}
                     </span>
                   </div>
-                  <CardTitle className="text-lg text-slate-800 leading-tight">
+                  <CardTitle className="text-lg text-black leading-tight">
                     {activity.title}
                   </CardTitle>
                 </CardHeader>
                 
                 <CardContent>
-                  <p className="text-slate-600 leading-relaxed">{activity.description}</p>
+                  <p className="text-black leading-relaxed">{activity.description}</p>
                 </CardContent>
               </Card>
             );
