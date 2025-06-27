@@ -5,37 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin, Github, Send, Globe } from 'lucide-react';
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "shravanikarambelkar7088@gmail.com",
-      action: () => window.open("mailto:shravanikarambelkar7088@gmail.com"),
-      color: "from-red-400 to-pink-400"
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 7758050169",
-      action: () => window.open("tel:+917758050169"),
-      color: "from-green-400 to-emerald-400"
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Pune, Maharashtra, India",
-      action: () => {},
-      color: "from-blue-400 to-cyan-400"
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "github.com/shravaniiiii12",
-      action: () => window.open("https://github.com/shravaniiiii12"),
-      color: "from-purple-400 to-indigo-400"
-    }
-  ];
-
   const interests = [
     "🌍 Exploring new cultures through travel and trekking",
     "📚 Reading to expand perspective and knowledge",
@@ -67,52 +36,8 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {/* Contact Information */}
-          <div className="lg:col-span-2">
-            <h3 className="text-3xl font-semibold text-black mb-8 animate-fade-in">Get In Touch</h3>
-            
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {contactInfo.map((contact, index) => {
-                const IconComponent = contact.icon;
-                return (
-                  <Card 
-                    key={index}
-                    className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg border border-white/10 hover:border-blue-400/50 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 animate-fade-in cursor-pointer group"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                    onClick={contact.action}
-                  >
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className={`p-4 bg-gradient-to-br ${contact.color} rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                          <IconComponent className="h-6 w-6 text-white" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <p className="text-sm text-slate-400 mb-1">{contact.label}</p>
-                          <p className="font-semibold text-black group-hover:text-blue-400 transition-colors duration-300 truncate">
-                            {contact.value}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-
-            {/* CTA Button */}
-            <div className="text-center">
-              <Button 
-                className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-300"
-                onClick={() => window.open("https://wa.me/qr/ADNTYM75YXKQJ1")}
-              >
-                <Send className="mr-2 h-5 w-5" />
-                Start a Conversation
-              </Button>
-            </div>
-          </div>
-
-          {/* Additional Info */}
           <div className="space-y-8">
             {/* Languages */}
             <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg border border-white/10 hover:border-blue-400/50 transition-all duration-500 animate-fade-in delay-300">
@@ -157,6 +82,86 @@ const Contact = () => {
                 </ul>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Contact Details */}
+          <div>
+            <div className="grid gap-6 mb-8">
+              <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg border border-white/10 hover:border-blue-400/50 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 animate-fade-in cursor-pointer group">
+                <CardContent className="p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-4 bg-gradient-to-br from-red-400 to-pink-400 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <Mail className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm text-slate-400 mb-1">Email</p>
+                      <p className="font-semibold text-black group-hover:text-blue-400 transition-colors duration-300 break-all">
+                        shravanikarambelkar7088@gmail.com
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg border border-white/10 hover:border-blue-400/50 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 animate-fade-in cursor-pointer group">
+                <CardContent className="p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-4 bg-gradient-to-br from-green-400 to-emerald-400 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <Phone className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm text-slate-400 mb-1">Phone</p>
+                      <p className="font-semibold text-black group-hover:text-blue-400 transition-colors duration-300">
+                        +91 7758050169
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg border border-white/10 hover:border-blue-400/50 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 animate-fade-in cursor-pointer group">
+                <CardContent className="p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-4 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <MapPin className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm text-slate-400 mb-1">Location</p>
+                      <p className="font-semibold text-black group-hover:text-blue-400 transition-colors duration-300">
+                        Pune, Maharashtra, India
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg border border-white/10 hover:border-blue-400/50 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 animate-fade-in cursor-pointer group" onClick={() => window.open("https://github.com/shravaniiiii12")}>
+                <CardContent className="p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-4 bg-gradient-to-br from-purple-400 to-indigo-400 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <Github className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm text-slate-400 mb-1">GitHub</p>
+                      <p className="font-semibold text-black group-hover:text-blue-400 transition-colors duration-300">
+                        github.com/shravaniiiii12
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* CTA Button */}
+            <div className="text-center">
+              <Button 
+                className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-300"
+                onClick={() => window.open("https://wa.me/qr/ADNTYM75YXKQJ1")}
+              >
+                <Send className="mr-2 h-5 w-5" />
+                Start a Conversation
+              </Button>
+            </div>
           </div>
         </div>
 

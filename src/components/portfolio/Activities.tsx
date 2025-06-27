@@ -6,12 +6,6 @@ import { Calendar, Trophy, Users, Briefcase, Award, Target, Star } from 'lucide-
 const Activities = () => {
   const activities = [
     {
-      title: "Maharashtra Innovation Challenge Dec-23",
-      description: "Represented the 'Smart Tomato Cultivation' project at the Maharashtra Innovation Challenge organized by MSSDS, pitching for funding at Savitribai Phule University, Pune.",
-      icon: Trophy,
-      category: "Competition"
-    },
-    {
       title: "Technophilia'24 Feb-24",
       description: "Served as Joint Secretary of SPARK Club, coordinating the 'Technophilia' project and paper presentation competition.",
       icon: Award,
@@ -24,16 +18,22 @@ const Activities = () => {
       category: "Volunteering"
     },
     {
-      title: "Kisan Agriculture Expo Visit Dec-23",
-      description: "Visited Kisan Agro Expo at PIECC Moshi for major project research, exploring agricultural trends, conducting surveys, and seeking sponsorships.",
-      icon: Briefcase,
-      category: "Research"
-    },
-    {
       title: "EV Expo Visit Feb-24",
       description: "Explored the latest innovations in electric vehicle technology at the EV Expo in Auto Cluster.",
       icon: Target,
       category: "Learning"
+    },
+    {
+      title: "Maharashtra Innovation Challenge Dec-23",
+      description: "Represented the 'Smart Tomato Cultivation' project at the Maharashtra Innovation Challenge organized by MSSDS, pitching for funding at Savitribai Phule University, Pune.",
+      icon: Trophy,
+      category: "Competition"
+    },
+    {
+      title: "Kisan Agriculture Expo Visit Dec-23",
+      description: "Visited Kisan Agro Expo at PIECC Moshi for major project research, exploring agricultural trends, conducting surveys, and seeking sponsorships.",
+      icon: Briefcase,
+      category: "Research"
     },
     {
       title: "Aavishkar Zonal Level Project Competition Nov-24",

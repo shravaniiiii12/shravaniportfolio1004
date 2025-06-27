@@ -36,7 +36,7 @@ const Projects = () => {
     <section className="py-20 px-4 relative">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-white mb-6 animate-fade-in">
+          <h2 className="text-5xl font-bold text-black mb-6 animate-fade-in">
             Featured <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Projects</span>
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
@@ -58,18 +58,18 @@ const Projects = () => {
                   }`}>
                     {project.status}
                   </span>
-                  <div className="flex items-center text-sm text-slate-400">
+                  <div className="flex items-center text-sm text-black">
                     <Calendar className="h-4 w-4 mr-2" />
                     {project.duration}
                   </div>
                 </div>
-                <CardTitle className="text-2xl text-white leading-tight group-hover:text-blue-400 transition-colors duration-300">
+                <CardTitle className="text-2xl text-black leading-tight group-hover:text-blue-400 transition-colors duration-300">
                   {project.title}
                 </CardTitle>
               </CardHeader>
               
               <CardContent className="flex-1 flex flex-col">
-                <p className="text-slate-300 mb-6 flex-1 leading-relaxed">{project.description}</p>
+                <p className="text-black mb-6 flex-1 leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, techIndex) => (
