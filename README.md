@@ -80,8 +80,8 @@ Get in touch section with WhatsApp integration
 git clone https://github.com/shravaniiiii12/shravaniportfolio1004
 cd portfolio-website
 
-**2.Install dependencies
-**
+2.Install dependencies
+
 npm install
 Start the development server
 
@@ -93,13 +93,15 @@ To build the project for production:
 npm run build
 The built files will be in the dist directory.
 
-🎨 Customization
-The portfolio is easily customizable:
 
-Colors: Modify the color scheme in tailwind.config.ts
-Content: Update component files in src/components/portfolio/
-Animations: Customize animations in the CSS classes
-Layout: Modify section order in src/pages/Index.tsx
+
+🎨 Customization
+-The portfolio is easily customizable:
+
+      -Colors: Modify the color scheme in tailwind.config.ts
+      -Content: Update component files in src/components/portfolio/
+      -Animations: Customize animations in the CSS classes
+      -Layout: Modify section order in src/pages/Index.tsx
 
 
 📁 Project Structure
