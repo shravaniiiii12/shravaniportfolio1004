@@ -1,113 +1,116 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { ArrowDown, Download, Mail, Phone, Github, MapPin } from 'lucide-react';
+import { ArrowDown, Download, Sparkles, Code, Zap } from 'lucide-react';
 
 const Hero = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   const scrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const downloadResume = () => {
-    // This would trigger resume download
     console.log('Downloading resume...');
   };
 
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
+      {/* Interactive background elements that follow mouse */}
+      <div 
+        className="absolute w-96 h-96 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-full blur-3xl transition-all duration-1000 ease-out"
+        style={{
+          transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
+          left: '10%',
+          top: '20%'
+        }}
+      />
+      <div 
+        className="absolute w-80 h-80 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl transition-all duration-1000 ease-out"
+        style={{
+          transform: `translate(${mousePosition.x * -0.01}px, ${mousePosition.y * -0.01}px)`,
+          right: '10%',
+          bottom: '20%'
+        }}
+      />
 
-      <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
-        {/* Profile Image and Info */}
-        <div className="text-center lg:text-left animate-fade-in">
-          <div className="relative inline-block mb-8">
-            <div className="w-64 h-64 mx-auto lg:mx-0 relative">
-              <img
-                src="/lovable-uploads/4fa360dd-37d0-42fd-88d5-da0f364919ae.png"
-                alt="Shravani Karambelkar"
-                className="w-full h-full object-cover rounded-full border-4 border-white shadow-2xl hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/20 to-indigo-500/20"></div>
+      <div className="container mx-auto text-center relative z-10">
+        {/* Main Content */}
+        <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {/* Animated Icons */}
+          <div className="flex justify-center space-x-8 mb-8">
+            <div className="p-4 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full backdrop-blur-sm animate-bounce delay-100">
+              <Code className="h-8 w-8 text-blue-400" />
+            </div>
+            <div className="p-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full backdrop-blur-sm animate-bounce delay-300">
+              <Sparkles className="h-8 w-8 text-cyan-400" />
+            </div>
+            <div className="p-4 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-full backdrop-blur-sm animate-bounce delay-500">
+              <Zap className="h-8 w-8 text-indigo-400" />
             </div>
           </div>
 
-          <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 mb-4 animate-fade-in delay-200">
-            Shravani<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-              Karambelkar
-            </span>
-          </h1>
+          {/* Name with advanced animations */}
+          <div className="mb-8">
+            <h1 className="text-6xl lg:text-8xl font-bold mb-4">
+              <span className="inline-block animate-fade-in bg-gradient-to-r from-white via-blue-200 to-indigo-200 bg-clip-text text-transparent">
+                Shravani
+              </span>
+            </h1>
+            <h1 className="text-6xl lg:text-8xl font-bold mb-6">
+              <span className="inline-block animate-fade-in delay-300 bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+                Karambelkar
+              </span>
+            </h1>
+          </div>
           
-          <p className="text-xl text-slate-600 mb-8 animate-fade-in delay-300">
-            AI & Cloud Engineer (Fresher)
-          </p>
+          {/* Animated Role */}
+          <div className="mb-8 animate-fade-in delay-500">
+            <p className="text-2xl lg:text-3xl text-blue-200 mb-2">
+              AI & Cloud Engineer
+            </p>
+            <div className="flex justify-center items-center space-x-2">
+              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+              <p className="text-lg text-slate-300">Fresher • Tech Enthusiast • Problem Solver</p>
+              <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse delay-500"></div>
+            </div>
+          </div>
 
-          <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8 animate-fade-in delay-400">
-            <Button onClick={downloadResume} className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-200">
-              <Download className="mr-2 h-4 w-4" />
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-6 justify-center mb-12 animate-fade-in delay-700">
+            <Button 
+              onClick={downloadResume} 
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-300"
+            >
+              <Download className="mr-2 h-5 w-5" />
               Download Resume
             </Button>
-            <Button variant="outline" onClick={scrollToAbout} className="border-blue-300 hover:bg-blue-50 transform hover:scale-105 transition-all duration-200">
-              <ArrowDown className="mr-2 h-4 w-4" />
-              Learn More
+            <Button 
+              variant="outline" 
+              onClick={scrollToAbout} 
+              className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-sm bg-white/10 transform hover:scale-105 transition-all duration-300"
+            >
+              <ArrowDown className="mr-2 h-5 w-5" />
+              Explore More
             </Button>
           </div>
-        </div>
 
-        {/* Contact Info Cards */}
-        <div className="space-y-4 animate-fade-in delay-500">
-          <Card className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 backdrop-blur-sm border border-blue-100">
-            <div className="flex items-center space-x-4">
-              <div className="p-3 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg">
-                <Mail className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <p className="text-sm text-slate-500">Email</p>
-                <p className="font-semibold text-slate-800">shravanikarambelkar7088@gmail.com</p>
-              </div>
+          {/* Scroll Indicator */}
+          <div className="animate-bounce delay-1000">
+            <div className="mx-auto w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-blue-400 rounded-full mt-2 animate-pulse"></div>
             </div>
-          </Card>
-
-          <Card className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 backdrop-blur-sm border border-blue-100">
-            <div className="flex items-center space-x-4">
-              <div className="p-3 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg">
-                <Phone className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <p className="text-sm text-slate-500">Phone</p>
-                <p className="font-semibold text-slate-800">7758050169</p>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 backdrop-blur-sm border border-blue-100">
-            <div className="flex items-center space-x-4">
-              <div className="p-3 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg">
-                <MapPin className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <p className="text-sm text-slate-500">Location</p>
-                <p className="font-semibold text-slate-800">Pune, India</p>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 backdrop-blur-sm border border-blue-100">
-            <div className="flex items-center space-x-4">
-              <div className="p-3 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg">
-                <Github className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <p className="text-sm text-slate-500">GitHub</p>
-                <p className="font-semibold text-slate-800">github.com/shravaniiiii12</p>
-              </div>
-            </div>
-          </Card>
+          </div>
         </div>
       </div>
     </section>
